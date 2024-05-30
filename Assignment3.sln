@@ -10,6 +10,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01KnowledgeOnOOPConcepts", 
 		01KnowledgeOnOOPConcepts\QuestionsAnswers.txt = 01KnowledgeOnOOPConcepts\QuestionsAnswers.txt
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03BuildingClassesWithOOP", "03BuildingClassesWithOOP\03BuildingClassesWithOOP.csproj", "{AD3228E9-1E4D-43C7-801A-48A6FBC2D631}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,6 +22,10 @@ Global
 		{31427064-A9F3-471B-B8C0-B770DB9D03A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{31427064-A9F3-471B-B8C0-B770DB9D03A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{31427064-A9F3-471B-B8C0-B770DB9D03A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD3228E9-1E4D-43C7-801A-48A6FBC2D631}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD3228E9-1E4D-43C7-801A-48A6FBC2D631}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD3228E9-1E4D-43C7-801A-48A6FBC2D631}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD3228E9-1E4D-43C7-801A-48A6FBC2D631}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
