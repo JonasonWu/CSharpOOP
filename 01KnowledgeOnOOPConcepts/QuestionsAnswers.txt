@@ -1,0 +1,117 @@
+1. What are the six combinations of access modifier keywords and what do they do? 
+	* public - indicates that the member is accessible to any code that references it without restrictions.
+	* private - indicates that the member is only accessible within the same class or struct. It is used to hide the member from 
+		outside code and encapsulate it within the defined space.
+	* protected - indicates that the member can only be accessed within the same class or a derived class. It is used to hide the access from 
+		outside code, but allow exclusive access to child classes.
+	* internal - indicates that the member is accessible only within the same assembly. Within the same project, the member can be accessed as 
+		needed, but it is inaccessible by members of a different assembly (i.e., if you create 2 projects within the same solution space, and 
+		one of the project has an internal class, then that class is not accessible within the other project space).
+	* protected internal - a combination of protected and internal features. The member is accessible within the same assembly, and is 
+		inaccessible from other assemblies, with the exception that a child class can access the member (i.e., within the same assembly/project, it
+		features the internal keyword access modifier, and within other assemblies/projects, it features the protected keyword).
+	* private protected - a combination of private and protected features. The member is accessible within the same assembly if it is a derived class, and is
+		inaccessible from other assemblies with no exceptions (i.e., within the same assembly/project, it features protected keyword; within
+		different assemblies/project, it features the private keyword).
+2. What is the difference between the static, const, and readonly keywords when applied to
+a type member?
+	* static - used to declare a member that belongs to the type itself rather than to a specific instance of the type.
+		* You do not need to create an instance of the type to use the member within the type.
+		* If static is used as the keyword for a class, it means that no instance of the class can be created, and the class is sealed by default.
+	* const - used to declare a compile-time constant. The value is declared at the time of declaration and cannot be changed afterwards.
+		* The static modifier is not usable in a const declaration because const is already static by default.
+	* readonly - used to declare a field that can only be assigned a value during its declaration or within a constructor of the same class.
+		* The static modifier is usable in a readonly declaration. There is an option to have instance variables.
+3. What does a constructor do?
+	* It is used a create an instance of the enclosing class.
+	* It initializes the members of a class to create an instance.
+	* It calls the parent class constructor by default to create the instance.
+4. Why is the partial keyword useful?
+	* The partial keyword is used to split up the definition of a class, struct, interface, or method over two or more source files.
+	* Benefits
+		* Multiple developers can work on the same class though different files.
+		* New code can be added to the class without having to change the source file that autogenerates the class.
+		* Source generators can be used to generate additional functionality for a class.
+	* You just need to use the partial keyword with the class name being the same, and the classes will be merged at compile-time.
+5. What is a tuple?
+	* A tuple is a feature that can be used to group multiple data elements together.
+	* It can be used to allow multiple return values in a method.
+	* It can be used to allow a single variable to store multiple data values without using a class.
+	* Tuples are immutable. Once they are created, their values cannot be changed.
+6. What does the C# record keyword do?
+	* The record keyword is used to define a reference type that provides built-in funtionality for encapsulating data.
+		(i.e., it is used to define a class and struct that is used for storing data).
+	* The record keyword is used to reduce boilerplate code.
+	* The record keyword can be used on a class to clarify a reference type, and struct to define a value type. 
+	* By default, the properties of a record are immutable.
+	* By default, the record keyword allows the compiler to autogenerate useful methods like ToString, Equals, and GetHashCode
+		using the data values in the definition
+7. What does overloading and overriding mean?
+	* Overloading - Allows a class to have multiple methods with the same name but different parameters and return types.
+		* It provides different ways to call the corresponding method of the same name based on the arguments passed.
+	* Overriding - Allows a child class to provide a specific implementation of a method that is already defined in the parent class.
+		* To override a method of the parent class:
+			* The parent class method must be virtual.
+			* The method signature must be the same between the virtual parent method and the 
+				override child method  (i.e., the method name, the parameter count, the parameter types, 
+				and the return type must all be the same).
+8. What is the difference between a field and a property?
+	* Field - A variable that is declared directly in a class or struct. It holds the data directly.
+		* There is no encapsulation performed when using the data for set or get operations. The data is just accessed directly.
+		* Examples of declaration:
+			* public string variable1;
+			* private int variable2;
+	* Properties - A variable that is automatically encapsulated when declared.
+		* Provides default getters and setters. Custom implementation can also be performed by creating a private variable.
+		* Under the hood, it creates a private variable to be managed by the property.
+		* Examples of declaration:
+			* public string Variable1 {get; set;}
+			* public string _variable1; public string Variable1 { get { return _variable1; } set { _variable1 = value; } }
+9. How do you make a method parameter optional?
+	* A method parameter can be optional if you set a default value for it and place it at the end of the parameter list.
+	* Required parameters should always exist before the optional parameters in the order of the parameters of the method.
+	* Example:
+		* public void Method(int required, string optional = "default string")
+10. What is an interface and how is it different from abstract class?
+	* An interface defines a contract. It generally should not have any implementation details. Any class that implements the interface
+		automatically agrees to implement all the methods of the interface.
+	* An abstract class is a class that cannot be used to create instances. It can include abstract methods and defined methods
+		without problems. For an abstract class to create instances, it must be inherited by another class.
+	* A class must only inherit one other class (which is also the case for abstract class), while any class can implement zero or more interfaces.
+	* Interfaces cannot have constructors, while abstract class can have constructors (which are then called by the derived classes for constructing instances of the derived class.	
+	* Interfaces members are public by default and cannot be changed, while abstract classes support a variety of modifiers.
+11. What accessibility level are members of an interface?
+	* Members of the interface are can only have public accessibility and cannot be changed.
+12. True/False. Polymorphism allows derived classes to provide different implementations
+of the same method.
+	* True.
+13. True/False. The override keyword is used to indicate that a method in a derived class is
+providing its own implementation of a method.
+	* True.
+	* Example:
+		* ParentClass pc = new ChildClass();
+		  pc.CallOverrideMethod(); // Will execute the ChildClass implementation of the method.
+14. True/False. The new keyword is used to indicate that a method in a derived class is
+providing its own implementation of a method.
+	* False. The new keyword is intended to hide a method.
+	* Example:
+		* ParentClass pc = new ChildClass();
+		  pc.CallNewMethod(); // Will execute the ParentClass implementation of the method.
+15. True/False. Abstract methods can be used in a normal (non-abstract) class.
+	* False. In a normal class, all abstract methods must be implemented.
+16. True/False. Normal (non-abstract) methods can be used in an abstract class.
+	* True. You can define an implementation of a method in an abstract class and use other normal methods in the implementation.
+17. True/False. Derived classes can override methods that were virtual in the base class.
+	* True. Virtual indicates that the method can be overriden.
+18. True/False. Derived classes can override methods that were abstract in the base class.
+	* True. You must override abstract methods in the base class if the derived class is not abstract.
+19. True/False. In a derived class, you can override a method that was neither virtual non abstract in the base class.
+	* False. A method must be virtual or abstract to be able to be overrided.
+20. True/False. A class that implements an interface does not have to provide an implementation for all of the members of the interface.
+	* False. All members of the interface must be implemented if a class implements the interface.
+21. True/False. A class that implements an interface is allowed to have other members that aren’t defined in the interface.
+	* True. An interface is just a contract that sets what is required, not everything that exists in a class.
+22. True/False. A class can have more than one base class.
+	* False. Only one inheritance per class.
+23. True/False. A class can implement more than one interface.
+	* True. Classes can implement multiple interfaces.
