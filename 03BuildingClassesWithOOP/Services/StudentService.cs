@@ -25,6 +25,7 @@
             int sumGrades = 0;
             foreach (var c in courses)
             {
+                if (c.Item2 == Grades.NONE) continue;
                 courseCount++;
                 sumGrades += (int)c.Item2;
 
